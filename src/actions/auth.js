@@ -46,7 +46,7 @@ export function login(email, password) {
       .then((data) => {
         console.log("data", data);
         if (
-          data.message ==
+          data.message ===
           "Sign in successful, here is your token, please keep it safe!"
         ) {
           // dispatch action to save user

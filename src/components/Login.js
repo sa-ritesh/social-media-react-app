@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { login } from "../actions/auth";
 import { connect } from "react-redux";
-
+import { Redirect } from "react-router-dom";
 class LogIn extends Component {
   constructor(props) {
     super(props);
@@ -35,7 +35,11 @@ class LogIn extends Component {
   render() {
     console.log("Render");
     console.log("login props", this.props.auth);
-    const { inProgress } = this.props.auth;
+    const { inProgress, isLoggedin } = this.props.auth;
+    if (isLoggedin) {
+      return <Redirect path="/"></Redirect>;
+    }
+
     return (
       <form className="login-form">
         <span className="login-signup-header">LOG IN</span>

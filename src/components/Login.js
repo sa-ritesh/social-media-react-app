@@ -33,11 +33,11 @@ class LogIn extends Component {
     }
   };
   render() {
-    console.log("Render");
-    console.log("login props", this.props.auth);
     const { inProgress, isLoggedin } = this.props.auth;
+    const { from } = this.props.location.state || { from: { pathname: "/" } };
+    console.log("LOGIN-PROPS", this.props);
     if (isLoggedin) {
-      return <Redirect path="/"></Redirect>;
+      return <Redirect to={from} />;
     }
 
     return (
